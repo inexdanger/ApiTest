@@ -1,0 +1,52 @@
+<head>
+    <title>Examen</title>
+</head>
+
+<body>
+    <h1>Examen</h1>
+    <form action="preguntas" method="POST">
+        <input type="hidden" name="id" value="{{.ID}}">
+        <input type="hidden" name="nombre" value="{{.Nombre}}">
+        <input type="hidden" name="preguntas" value="{{.Preguntas}}">
+
+        <p>Ingrese los datos de la pregunta:</p>
+        {{range $i, $respuesta := .Inputs}}
+        {{$e := $i}}
+        {{$i := add $i 1}}
+
+        <label for="pregunta{{$e}}"> Pregunta {{$i}}:</label>
+        <input type="text" id="pregunta{{$e}}" name="pregunta{{$e}}">
+        <br>
+
+        <label for="respuesta{{$e}}">Respuesta 1:</label>
+        <input type="text" id="respuesta{{$e}}1" name="respuesta{{$e}}1">
+        <input type="radio" id="true{{$e}}" name="true{{$e}}" value="1" required>
+        <label for="true{{$e}}">Correcto</label>
+        <br>
+
+        <label for="respuesta{{$e}}">Respuesta 2:</label>
+        <input type="text" id="respuesta{{$e}}2" name="respuesta{{$e}}2">
+        <input type="radio" id="true{{$e}}" name="true{{$e}}" value="2" required>
+        <label for="true{{$e}}">Correcto</label>
+        <br>
+
+        <label for="respuesta{{$e}}">Respuesta 3:</label>
+        <input type="text" id="respuesta{{$e}}3" name="respuesta{{$e}}3">
+        <input type="radio" id="true{{$e}}" name="true{{$e}}" value="3" required>
+        <label for="true{{$e}}">Correcto</label>
+        <br>
+
+        <label for="respuesta{{$e}}">Respuesta 4:</label>
+        <input type="text" id="respuesta{{$e}}4" name="respuesta{{$e}}4">
+        <input type="radio" id="true{{$e}}" name="true{{$e}}" value="4" required>
+        <label for="true{{$e}}">Correcto</label>
+
+        <br>
+        <br>
+        {{end}}
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+
+</html>

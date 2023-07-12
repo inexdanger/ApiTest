@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Examen</title>
+</head>
+
+<body>
+    <h1>Examen</h1>
+    <p>{{.Mensaje}}</p>
+    <form method="POST" action="/submit">
+        {{range .Preguntas}}
+        <h2>{{.Pregunta}}</h2>
+        <input type="radio" name="respuesta{{.ID}}" value="{{.Respuesta1}}"> {{.Respuesta1}}
+        <input type="radio" name="respuesta{{.ID}}" value="{{.Respuesta2}}"> {{.Respuesta2}}
+        <input type="radio" name="respuesta{{.ID}}" value="{{.Respuesta3}}"> {{.Respuesta3}}
+        <input type="radio" name="respuesta{{.ID}}" value="{{.Respuesta4}}"> {{.Respuesta4}}<br>
+        {{end}}
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+
+</html>
